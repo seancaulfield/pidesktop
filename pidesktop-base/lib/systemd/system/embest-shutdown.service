@@ -1,5 +1,5 @@
 [Unit]
-Description=Reboot test
+Description=PiDeskTop Sync RTC
 DefaultDependencies=no
 Before=shutdown.target
 
