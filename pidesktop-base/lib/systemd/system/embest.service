@@ -1,5 +1,5 @@
 [Unit]
-Description=Embest shell
+Description=PiDesktop Shutdown Restart
 After=local-fs.target
 
 [Service]
