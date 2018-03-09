@@ -63,5 +63,3 @@ run before remove deb file completion.
 >
 dpkg -b pidesktop-base/ pidesktop-base.deb
 
-
-[1]:file_tree.png
