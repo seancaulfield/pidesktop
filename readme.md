@@ -39,7 +39,6 @@ Edit the file /boot/cmdline.txt,changing 'root=/dev/sda2'.
 shell file
 ---------------
 <b>path:</b> usr/share/PiDesktop/script
-
 - ppp-hdclone
 >
 call diskClone.py
@@ -48,26 +47,17 @@ call diskClone.py
 >
 synchronous time
 
-service
+systemd service files
 ---------------
-<b>path:</b> lib/systemd/system
-Create the startup service.
+lib/systemd/system/pidesktop-power.service - with restart.py
+lib/systemd/system/pidesktop-rtcsync.service - with sync-hwclock
 
-- embest.service
->
-call restart.py
-
-- embest-shutdown.service
->
-call sync-hwclock
-
-Deb File
----------------
+deb package files
+-----------------
 ####Deb control shell
 - control
 >
 Deb file's infomation.
-
 - postinst
 >
 Run after install deb file completion.
