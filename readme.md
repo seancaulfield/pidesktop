@@ -5,9 +5,9 @@ This repository is a fork of the "offical" DIY Pi Desktop Case sold by http://ww
 
 File Tree
 ---------------
-![1][1]
+![1]
 
-python file 
+python file
 ---------------
 <b>path:</b> usr/share/PiDesktop/python
 
@@ -72,7 +72,7 @@ Run after install deb file completion.
 3. Enable services(embest-shutdown.service and embest.service).
 
 - postrm
-> 
+>
 run before remove deb file completion.
 
 ####Make pidesktop-base.deb file,command line run:
