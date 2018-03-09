@@ -1,26 +1,16 @@
 pidesktop
 ===============
-
 This repository is a fork of the "offical" DIY Pi Desktop Case sold by http://www.element14.com sourced from Embest Technology Ltd. that combines a novel mSATA USB Disk and a power management solution integrated with Raspberry Pi GPIO Connector.  The fork was created to apply patches requested by the community of users, to bring together all the related files and polish the product and support files since I would like to continue to use it, but with patches applied and cleaned up.
 
 Install
 =======
 [Fast Installation using an mSTAT drive](install.md)
 
-File Tree
----------------
-![1]
+Utilities
+------------
+usr/share/PiDesktop/python/restart.py - support for shutdown/reboot
 
-python file
----------------
-<b>path:</b> usr/share/PiDesktop/python
-
-- restart.py
->
-shutdown shell
-
-- rtc.py
->
+usr/share/PiDesktop/python/rtc.py - setup real time clock
 1.Edit the file /boot/config.txt,changing 'dtoverlay=i2c-rtc,pcf8563'.   
 2.Edit the file /lib/udev/hwclock-set,commenting out some code.  
 3.Disable fake-hwclock.service
@@ -49,7 +39,7 @@ synchronous time
 
 systemd service files
 ---------------
-lib/systemd/system/pidesktop-power.service - with restart.py
+lib/systemd/system/pidesktop-power.service - with restart.py 
 lib/systemd/system/pidesktop-rtcsync.service - with sync-hwclock
 
 deb package files
