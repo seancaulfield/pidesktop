@@ -3,8 +3,9 @@ Description=PiDesktop Shutdown Restart
 After=local-fs.target
 
 [Service]
-Type=oneshot
-ExecStart=/usr/bin/python /usr/share/PiDesktop/python/restart.py
+Type=simple
+ExecStart=/usr/bin/python /usr/share/pidesktop/python/pd-restart.py
 
 [Install]
 WantedBy=multi-user.target
+
