@@ -41,4 +41,4 @@ If you installed a camera you enable with "raspi-config" and then test it with *
 
 Remember
 --------
-If you ever need to reimage your mSATA SSD, it is as easy as unplugging the special USB adapter and connecting to the imaging machine.  You *DO NOT* need to disassemble the case.   Also, if you use a wireless keyboard/mouse with your new pidesktop you can install the small dongle under the special USB adapter and that makes for a very clean installation with easy access to the remaining USB ports.
+If you ever need to reimage your mSATA SSD, it is as easy as unplugging the special USB adapter and connecting the micro-USB and and power ports to the imaging machine.  You *DO NOT* need to disassemble the case.   Also, if you use a wireless keyboard/mouse with your new pidesktop you can install the small dongle under the special USB adapter and that makes for a very clean installation with easy access to the remaining USB ports.
