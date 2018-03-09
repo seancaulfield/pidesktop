@@ -1,7 +1,7 @@
 pidesktop
 ===============
 
-This repository is a fork of the "offical" DIY Pi Desktop Case sold by http://www.element14.com sourced from Embest Technology Ltd. that combines a novel mSATA USB Disk and a power management solution integrated with Raspberry Pi GPIO Connector.  The fork was created to apply patches requested by the community of users, to bring together all the related files.   And polish the product and support files since I would like to continue to use it, but with my patches applied.
+This repository is a fork of the "offical" DIY Pi Desktop Case sold by http://www.element14.com sourced from Embest Technology Ltd. that combines a novel mSATA USB Disk and a power management solution integrated with Raspberry Pi GPIO Connector.  The fork was created to apply patches requested by the community of users, to bring together all the related files and polish the product and support files since I would like to continue to use it, but with patches applied and cleaned up.
 
 File Tree
 ---------------
