@@ -4,9 +4,9 @@ This repository is a fork of the "offical" DIY Pi Desktop Case sold by http://ww
 
 Install
 =======
-[Fast Installation using an mSTAT drive](install.md)
+[Fast Installation using an mSATA drive](install.md)
 
-Utilities
+Utilities - (TODO: details below need to be pushed into files and installation instructions)
 ------------
 usr/share/PiDesktop/python/restart.py - support for shutdown/reboot
 
