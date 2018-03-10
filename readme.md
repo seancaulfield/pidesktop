@@ -16,9 +16,9 @@ The original script utilities have been refactored and renamed
 
 [pd-status](pidesktop-base/usr/share/pidesktop/script/pd-status) - summarize the files, scripts, links, and services to support pidesktop (new)
 
-[pd-fixrtc.py](pidesktop/usr/share/pidesktop/python/pd-fixrtc.py) - install fixup to support RTC
+[pd-fixrtc.py](pidesktop-base/usr/share/pidesktop/python/pd-fixrtc.py) - install fixup to support RTC
 
-[pd-clonessd](pidesktop/usr/share/pidesktop/script/pd-clonessd) - cimage SD to SSD and make bootable (was ppp-hdclone) 
+[pd-clonessd](pidesktop-base/usr/share/pidesktop/script/pd-clonessd) - cimage SD to SSD and make bootable (was ppp-hdclone) 
 
 Note that pd-clonessd simply executes pd-bootssd.py followed by pd-clonessd.py
 
