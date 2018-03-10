@@ -9,7 +9,7 @@ Needed parts:
 - a bootable SD card (just for installing)
 - two USB->miniUSB cables (just for imaging)
 
-The pidesktop add-on board functions as a USB mSATA SSD device when connected to *any* system not just an RP3. If the special USB adapter that connects the RP3 to the add-on card (hat) is not installed and there is no SD card in the RP3, the RP3 will not boot. When the micro-USB data port of the add-on card is connected to a computer and power is provide via the second micro-USB port the add-on card is funcational when the power button is pressed.
+The pidesktop add-on board functions as a USB mSATA SSD device when connected to *any* system not just an RP3. If the special USB adapter that connects the RP3 to the add-on card (hat) is not installed and there is no SD card in the RP3, the RP3 will not boot. When the micro-USB data port of the add-on card is connected to a computer and power is provided via the second micro-USB port on the add-on card, the add-on card alone becomes a functional USB mSATA SSD device when the power button on the add-on card is pressed.
 
 Before you assemble the case
 ----------------------------
@@ -23,7 +23,7 @@ DO NOT yet install the special USB adapter, first we need to image the SSD.
 
 Image your SSD
 --------------
-Using Etcher and the pidesktop add-on board (without the special USB adapter) with the following steps:
+Using Etcher and the pidesktop add-on board (without the special USB adapter installed) with the following steps:
 a. Attach both USB ports of the pi-desktop add-on board with USB cables to the imaging machine
 b. Press the power button on the add-on board, it will appear to your imaging system as a USB SSD device
 c. Use Etcher to write the latest Raspian image (or you OS of choice) to the mSATA SSD USB device.
