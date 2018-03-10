@@ -9,7 +9,7 @@ Needed parts:
 - a bootable SD card (just for installing)
 - two USB->miniUSB cables (just for imaging)
 
-The pidesktop add-on board functions as a USB mSATA SSD device when connected to *any* system not just an RP3. If the special USB adapter that connects the RP3 to the add-on card (hat) is not installed and there is no SD card in the RP3, the RP3 will not boot. When the micro-USB data port of the add-on card is connected to a computer and power is provided via the second micro-USB port on the add-on card, the add-on card alone becomes a functional USB mSATA SSD device when the power button on the add-on card is pressed.
+The pidesktop add-on board functions as a USB mSATA SSD device when connected to *any* system not just an RP3. If the special USB adapter that connects the RP3 to the add-on card (hat) is not inserted and there is no SD card in the RP3, the RP3 will not boot. When the micro-USB data port of the add-on card is connected to a computer and power is provided via the second micro-USB port on the add-on card, the add-on card alone becomes a functional USB mSATA SSD device when the power button on the add-on card is pressed.
 
 Before you assemble the case
 ----------------------------
