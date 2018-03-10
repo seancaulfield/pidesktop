@@ -18,15 +18,14 @@ The original script utilities have been refactored and renamed
 
 [pd-fixrtc.py](pidesktop-base/usr/share/pidesktop/python/pd-fixrtc.py) - install fixup to support RTC
 
-[pd-clonessd](pidesktop-base/usr/share/pidesktop/script/pd-clonessd) - cimage SD to SSD and make bootable (was ppp-hdclone) 
-
-Note that pd-clonessd simply executes pd-bootssd.py followed by pd-clonessd.py
+[pd-clonessd](pidesktop-base/usr/share/pidesktop/script/pd-clonessd) - image SD to SSD and make bootable (was ppp-hdclone) 
+Which uses [pd-clonessd.py](pidesktop-base/usr/share/pidesktop/python/pd-clonessd.py) and [pd-bootssd.py](pidesktop-base/usr/share/pidesktop/python/pd-bootssd.py) 
 
 systemd service files
 ---------------------
-lib/systemd/system/pidesktop-shutdown.service - uses pd-restart.py
+lib/systemd/system/pidesktop-shutdown.service which uses [pd-restart.py](pidesktop-base/usr/share/pidesktop/python/pd-restart.py)
 
-lib/systemd/system/pidesktop-rtcsync.service - uses pd-rtcsync script
+lib/systemd/system/pidesktop-rtcsync.service which uses [pd-rtcsync](pidesktop-base/usr/share/pidesktop/script/pd-rtcsync.py) uses pd-rtcsync script
 
 package files
 -------------
