@@ -1,65 +1,43 @@
 pidesktop
 ===============
-This repository is a fork of the "offical" DIY Pi Desktop Case sold by http://www.element14.com sourced from Embest Technology Ltd. that combines a novel mSATA USB Disk and a power management solution integrated with Raspberry Pi GPIO Connector.  The fork was created to apply patches requested by the community of users, to bring together all the related files and polish the product and support files since I would like to continue to use it, but with patches applied and cleaned up.
+This repository is a fork of the "offical" DIY Pi Desktop Case sold by http://www.element14.com sourced from Embest Technology Ltd. The case comes with a novel mSATA USB Disk with a power management solution integrated with Raspberry Pi GPIO Connector.  Together they provide the missing mass storage and power management that is available in a typical desktop computer.  
+
+The fork was created to apply patches requested by the community of users, to bring together all the related files and polish the product and support files since I would like to continue to use it, but with patches applied and cleaned up.
 
 Install
 =======
-[Fast Installation using an mSATA drive](install.md)
+[Fast Installation booting from an mSATA drive](install.md)
 
-Utilities - (TODO: details below need to be pushed into files and installation instructions)
+[Standard Installation booting from an SD card](documents/Installation-Manual.md)
+
+Utilities
 ------------
-usr/share/PiDesktop/python/restart.py - support for shutdown/reboot
+The original script utilities have been refactored and renamed
 
-usr/share/PiDesktop/python/rtc.py - setup real time clock
-1.Edit the file /boot/config.txt,changing 'dtoverlay=i2c-rtc,pcf8563'.   
-2.Edit the file /lib/udev/hwclock-set,commenting out some code.  
-3.Disable fake-hwclock.service
+[pd-status](pidesktop-base/usr/share/pidesktop/script/pd-status) - summarize the files, scripts, links, and services to support pidesktop (new)
 
-- pppBoot.py
->
-Change boot parameters.
-Edit the file /boot/cmdline.txt,changing 'root=/dev/sda2'.
+[pd-fixrtc.py](pidesktop/usr/share/pidesktop/python/pd-fixrtc.py) - install fixup to support RTC
 
-- diskClone.py
->
-1.Check if there is a mSATA disk.  
-2.call piclone   
-3.call pppBoot.py   
+[pd-clonessd](pidesktop/usr/share/pidesktop/script/pd-clonessd) - cimage SD to SSD and make bootable (was ppp-hdclone) 
 
-shell file
----------------
-<b>path:</b> usr/share/PiDesktop/script
-- ppp-hdclone
->
-call diskClone.py
-
-- sync-hwclock
->
-synchronous time
+Note that pd-clonessd simply executes pd-bootssd.py followed by pd-clonessd.py
 
 systemd service files
----------------
-lib/systemd/system/pidesktop-power.service - with restart.py 
-lib/systemd/system/pidesktop-rtcsync.service - with sync-hwclock
+---------------------
+lib/systemd/system/pidesktop-shutdown.service - uses pd-restart.py
 
-deb package files
------------------
-####Deb control shell
-- control
->
-Deb file's infomation.
-- postinst
->
-Run after install deb file completion.
-1. Add +x to shell files.
-2. Generate link script(/usr/bin) to pppBoot.py and ppp-hdclone.
-3. Enable services(embest-shutdown.service and embest.service).
+lib/systemd/system/pidesktop-rtcsync.service - uses pd-rtcsync script
 
-- postrm
->
-run before remove deb file completion.
+package files
+-------------
+control - package control info
 
-####Make pidesktop-base.deb file,command line run:
->
-dpkg -b pidesktop-base/ pidesktop-base.deb
+postinst - post installation script
 
+postrm = post uninstall script
+
+building pidesktop-base
+-----------------------
+There is a simple Makefile to build pidesktop-base.deb file from sources or you can simply download the provided .deb file and install with the following command:
+
+dpkg -i pidesktop-base.deb
