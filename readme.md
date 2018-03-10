@@ -25,7 +25,7 @@ systemd service files
 ---------------------
 lib/systemd/system/pidesktop-shutdown.service which uses [pd-restart.py](pidesktop-base/usr/share/pidesktop/python/pd-restart.py)
 
-lib/systemd/system/pidesktop-rtcsync.service which uses [pd-rtcsync](pidesktop-base/usr/share/pidesktop/script/pd-rtcsync.py) uses pd-rtcsync script
+lib/systemd/system/pidesktop-rtcsync.service which uses [pd-rtcsync](pidesktop-base/usr/share/pidesktop/script/pd-rtcsync)
 
 package files
 -------------
