@@ -13,7 +13,7 @@ The pidesktop add-on board functions as a USB mSATA SSD device when connected to
 
 Before you assemble the case
 ----------------------------
-Make sure the RP3's ["Boot from USB bit"](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) is set by [booting from an SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and making sure the required bit is set in hardware.  Make certain: *vcgencmd otp_dump | grep 17:* shows *17:3020000a*, then shutdown and remove the SD card since it is no longer needed.  You should be able to use an existing card, just *remember* to clear the /boot/config.txt changes used the set the boot bit.
+Make sure the RP3's ["Boot from USB bit"](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) is set by [booting from an SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and making sure the required bit is set in hardware.  Make certain: `vcgencmd otp_dump | grep 17:` shows `17:3020000a`, then shutdown and remove the SD card since it is no longer needed.  You should be able to use an existing card, just *remember* to clear the /boot/config.txt changes used the set the boot bit.
 
 Assemble the case
 -----------------
@@ -35,9 +35,9 @@ Now you can connect the special USB adapter to the case and boot with your monit
 
 Install the pidesktop package
 -----------------------------
-Good practice would be to [update Raspian via apt-get](https://www.raspberrypi.org/documentation/raspbian/updating.md) and go to the pidesktop github to download the zipped .deb package. Unzip then install the pidesktop-base package and reboot, check all is well with *sudo hwclock -r* and *shutdown now* will use the new pi-desktop power control - blue led will flash then full power off.
+Good practice would be to [update Raspian via apt-get](https://www.raspberrypi.org/documentation/raspbian/updating.md) and go to the pidesktop github to download the zipped .deb package. Unzip then install the pidesktop-base package and reboot, check all is well with `pd-check` and you should see commands added, new services, and RTC clock uodated. You can then `shutdown now` and use the new pi-desktop power control - blue led will flash for 30 seconds and then full power off.
 
-If you installed a camera you enable with "raspi-config" and then test it with *raspistill -vf -o test.jpg* and you can do some mild overclocking can speed up your new system - add a fan (case supports it) if you want to push your system.  Best Feature: You can safely shutdown via the power button by holding it down for 2 seconds!
+If you installed a camera you enable with "raspi-config" and then test it with `raspistill -vf -o test.jpg` and you can do some mild overclocking can speed up your new system - add a fan (case supports it) if you want to push your system.  Best Feature: You can safely shutdown via the power button by holding it down for 2 seconds!
 
 Remember
 --------
