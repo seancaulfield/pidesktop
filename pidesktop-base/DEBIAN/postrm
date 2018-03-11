@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # files are cleaned up by package manager, but broken links need to be cleared
-sudo rm -f /usr/bin/pd-status
+sudo rm -f /usr/bin/pd-check
 sudo rm -f /usr/bin/pd-clonessd
 sudo rm -f /usr/bin/pd-bootssd
 sudo rm -f /usr/bin/pd-fixrtc
