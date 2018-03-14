@@ -13,7 +13,9 @@ The pidesktop add-on board functions as a USB mSATA SSD device when connected to
 
 Before you assemble the case
 ----------------------------
-Make sure the RP3's ["Boot from USB bit"](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) is set by [booting from an SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and making sure the required bit is set in hardware.  Make certain: `vcgencmd otp_dump | grep 17:` shows `17:3020000a`, then shutdown and remove the SD card since it is no longer needed.  You should be able to use an existing card, just *remember* to clear the /boot/config.txt changes used the set the boot bit.
+Make sure the RP3's ["Boot from USB bit"](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) is set by [booting from an SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and making sure the required bit is set in hardware.  Make certain: `vcgencmd otp_dump | grep 17:` shows `17:3020000a`, then shutdown and remove the SD card since it is no longer needed**.  You should be able to use an existing card, just *remember* to clear the /boot/config.txt changes used the set the boot bit.
+
+**FULL DISCLOSURE:  The pidesktop case power management firmware has a bug in that it expects reboot will always be completed in less than 30 seconds.  If your reboot times approach or exceed 30 seconds (and they can) you will experience failed or unreliable reboots which are effectively caused by the power management controller shutting off power because it cannot detect system restart during the early stages of a reboot.  The workaround is to insert a blank formatted SD card into your Raspberry Pi which will generally speed reboot times by around 5 seconds. If there is no SD card inserted, the SD boot mode takes five seconds to fail before boot will start on the USB mSATA SSD.  Even if you don't have any reboot issues, you may want to save the 5 seconds and have a second storage device available for use.
 
 Assemble the case
 -----------------
@@ -42,3 +44,8 @@ If you installed a camera you enable with "raspi-config" and then test it with `
 Remember
 --------
 If you ever need to reimage your mSATA SSD, it is as easy as unplugging the special USB adapter and connecting the micro-USB and and power ports to the imaging machine.  You *DO NOT* need to disassemble the case.   Also, if you use a wireless keyboard/mouse with your new pidesktop you can install the small dongle under the special USB adapter and that makes for a very clean installation with easy access to the remaining USB ports.
+
+References
+----------
+https://github.com/raspberrypi/documentation/blob/master/hardware/raspberrypi/bootmodes/bootflow.md
+

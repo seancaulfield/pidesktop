@@ -7,10 +7,12 @@ sudo rm -f /usr/bin/pd-bootssd
 sudo rm -f /usr/bin/pd-fixrtc
 
 # stop systemd services
-sudo systemctl stop pidesktop-rtcsync.service
+sudo systemctl stop pidesktop-powerkey.service
 sudo systemctl stop pidesktop-shutdown.service
+sudo systemctl disable pidesktop-powerkey.service
+sudo systemctl disable pidesktop-shutdown.service
 
-# remove residual systemd files
+# remove any residual systemd files
 sudo rm -f /lib/systemd/system/pidesktop-*.service
 sudo rm -f /etc/systemd/system/*.target.wants/pidesktop-*.service
 
