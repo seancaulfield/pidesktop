@@ -23,9 +23,9 @@ which uses [pd-clonessd.py](pidesktop-base/usr/share/pidesktop/python/pd-cloness
 
 systemd service files
 ---------------------
-lib/systemd/system/pidesktop-shutdown.service which uses [pd-restart.py](pidesktop-base/usr/share/pidesktop/python/pd-restart.py)
+lib/systemd/system/pidesktop-shutdown.service which uses [pd-shutdown.py](pidesktop-base/usr/share/pidesktop/python/pd-shutdown.py)
 
-lib/systemd/system/pidesktop-rtcsync.service which uses [pd-rtcsync](pidesktop-base/usr/share/pidesktop/script/pd-rtcsync)
+lib/systemd/system/pidesktop-powerkey.service which uses [pd-powerkey.py](pidesktop-base/usr/share/pidesktop/python/pd-powerkey.py)
 
 package files
 -------------
