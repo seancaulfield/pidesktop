@@ -37,9 +37,23 @@ Now you can connect the special USB adapter to the case and boot with your monit
 
 Install the pidesktop package
 -----------------------------
-Good practice would be to [update Raspian via apt-get](https://www.raspberrypi.org/documentation/raspbian/updating.md) and go to the pidesktop github to download the zipped .deb package. Unzip then install the pidesktop-base package and reboot, check all is well with `pd-check` and you should see commands added, new services, and RTC clock uodated. You can then `shutdown now` and use the new pi-desktop power control - blue led will flash for 30 seconds and then full power off.
+Not required when I tested, but good practice would be to [update Raspian via apt-get](https://www.raspberrypi.org/documentation/raspbian/updating.md) and then go to the [pidesktop github](http://github.com/hoopsurfer/pidesktop) to download the .deb package. Install the pidesktop-base package and reboot, check all is well with `pd-check` and you should see commands added, new services, and RTC clock updated. You can then `shutdown now` and use the new pi-desktop power control - blue led will flash for 30 seconds and then full power off.
 
-If you installed a camera you enable with "raspi-config" and then test it with `raspistill -vf -o test.jpg` and you can do some mild overclocking can speed up your new system - add a fan (case supports it) if you want to push your system.  Best Feature: You can safely shutdown via the power button by holding it down for 2 seconds!
+If you installed a camera you enable with "raspi-config" and then test it with `raspistill -vf -o test.jpg` and you can do some mild overclocking to speed up your new system - add a micro cooling fan (case supports it) if you want to push your system.  Best Feature: You can safely shutdown via the power button by holding it down for 2 seconds!
+
+Test Installs with Different SSDs
+---------------------------------
+I was able to try different SSDs, generally the imaging process took about 4 minutes, once installed here are boot/reboot times measured first without an SD card installed, then with a blank SD card installed.  No cameras and the boot time was measured from pressing the power button to the first flash of the case LED (feature of this pidesktop 1.1.4 release).  The reboot time is from first flash of the case LED to case LED on - intended to start when the reboot timer starts).
+
+__Raspberry Pi 3 Model B (Boot from USB Set) - with and without a blank SD card__
+   *mSAT SSD Device*    *Boot Time to LED Flash*  *Reboot Time w/o SD*    *Reboot Time w/ Blank SD*        
+Samsung 860 EVO 250GB   testing ongoing
+Kingston 120GB          testing ongoing
+Kingspec 64GB           31.2s w/o SD 26.2s w/SD     30+s (reboot fails)    26.3-29.6s (occastionally fails)
+
+__Raspberry Pi Model B+ with and without a blank SD card__
+
+TODO:  Pi 3 Model B SD (not Boot from USB)
 
 Remember
 --------
