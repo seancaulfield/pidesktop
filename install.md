@@ -46,7 +46,8 @@ Test Installs with Different SSDs
 I was able to try different SSDs, generally the imaging process took about 4 minutes, once installed here are boot/reboot times measured first without an SD card installed, then with a blank SD card installed.  No cameras and the boot time was measured from pressing the power button to the first flash of the case LED (feature of this pidesktop 1.1.4 release).  The reboot time is from first flash of the case LED to case LED on - intended to start when the reboot timer starts).
 
 __Raspberry Pi 3 Model B (Boot from USB Set) - with and without a blank SD card__
-*mSAT SSD Device* | *Boot Time to LED Flash* |  *Reboot Time w/o SD*  | *Reboot Time w/ Blank SD* 
+
+ mSAT SSD Device  | *Boot Time to LED Flash* |  *Reboot Time w/o SD*  | *Reboot Time w/ Blank SD* 
 ------------------|--------------------------|------------------------|---------------------------
 Samsung 860 EVO 250GB | testing ongoing | ? | ?
 Kingston 120GB | 31.2s w/o SD, 26.2s w/SD | 30+s (reboot fails) | 25.9s-26.8s
