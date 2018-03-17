@@ -15,3 +15,7 @@ sudo systemctl list-unit-files | grep pidesktop
 # show RTC hwclock
 echo -e "\n Hardware clock:\n"
 sudo hwclock -r
+
+# show System clock
+echo -e "\n System clock:\n"
+date

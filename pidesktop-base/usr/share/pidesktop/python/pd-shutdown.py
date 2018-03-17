@@ -12,11 +12,15 @@
 # this is to force a power off if shutdown hangs for some reason - somewhat lame.
 
 import RPi.GPIO as GPIO
+import os
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD) # Use physical board pin numbering
 GPIO.setup(31,GPIO.OUT)  # Pi to Power MCU communication
 GPIO.setup(33,GPIO.IN)   # Power MCU to Pi on power button press
+
+# stash the current system clock setting into the RTC hardware
+os.system("/sbin/hwclock --systohc")
 
 if GPIO.input(33):
 	# Power Key was already pressed - shut the system down immediately
