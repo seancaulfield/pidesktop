@@ -42,15 +42,15 @@ Best Feature: You can safely shutdown via the power button by holding it down fo
 
 Test Installs with Different SSDs
 ---------------------------------
-I was able to try different SSDs, I used Raspian images and the imaging process took about 8 minutes, once installed here are boot/reboot times measured first without an SD card installed, then with a blank SD card installed.  No cameras and the boot time was measured from pressing the power button to the first flash of the case LED - a feature of the [pidesktop 1.1.4 release](https://github.com/hoopsurfer/pidesktop).  The reboot time is from first flash of the case LED to case LED on - effectively when the reboot timer in the power MCU starts and ends).
+I was able to try different SSDs, I used Raspian images and the imaging process took about 8 minutes, once installed here are boot/reboot times measured first without an SD card installed, then with a blank SD card installed.  No cameras and the boot time was measured from pressing the power button to the first flash of the case LED - a feature of the [pidesktop 1.1.4 release](https://github.com/hoopsurfer/pidesktop).  The reboot time is from first flash of the case LED to case LED on - effectively when the reboot timer in the power MCU starts and ends.
 
 __Raspberry Pi 3 Model B+ with Raspian Stretch 2018-03-13 - with and without a blank SD card__
 
  mSAT SSD Device  | *Boot Time to LED Flash* |  *Reboot Time w/o SD*  | *Reboot Time w/ Blank SD* 
 ------------------|--------------------------|------------------------|---------------------------
 Samsung 860 EVO 250GB | 33.3 w/o SD, 27.9 w/SD | 30+s (reboot fails) | 27.7s-28.6s (fails sometimes)  
-Kingston 120GB | ?s w/o SD, ?s w/SD | 30+s (reboot fails) | ?s=?s
-Kingspec 64GB | ?s w/o SD, ?s w/SD | 30+s (reboot fails) | ?s-?s (fails sometimes)
+Kingston 120GB | 32.3s w/o SD, 27.2s w/SD | 30+s (reboot fails) | *26.4s-27.4s*
+Kingspec 64GB | 32.3s w/o SD, 27.2s w/SD | 30+s (reboot fails) | 26.8s-29.9s (fails sometimes)
 
 __Raspberry Pi 3 Model B (Boot from USB Set) with Raspian Stretch 2017-11-29 - with and without a blank SD card__
 
@@ -69,7 +69,7 @@ As noted in the results reboots did fail and when they did it is bacause the boo
 
 Hacking Your Pi Desktop Case
 ----------------------------
-If you ever need to reimage your mSATA SSD, it is as easy as unplugging the special USB adapter and connecting the micro-USB and and power ports to the imaging machine.  It takes me about 4 minutes to reimage and you *DO NOT* need to disassemble the case.   
+If you ever need to reimage your mSATA SSD, it is as easy as unplugging the special USB adapter and connecting the micro-USB and and power ports to the imaging machine.  It takes me about 8 minutes to reimage and you *DO NOT* need to disassemble the case.   
 
 If you use a wireless keyboard/mouse with your new pidesktop you can install the small dongle under the special USB adapter and that makes for a very clean installation with easy access to the remaining two USB ports.
 
