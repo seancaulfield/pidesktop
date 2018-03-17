@@ -25,14 +25,14 @@ Attach the RP3 board (with formatted blank SSD recommended) to the case using th
 Image your SSD
 --------------
 Use Etcher and the pidesktop add-on board (without the special USB adapter installed) as follows:
-a. Connect both USB ports of the pi-desktop add-on board to two USB ports on the imaging machine
-b. Press the power button on the add-on board, it will appear to your imaging system as a USB SSD device
-c. Use Etcher to write the latest Raspian image (or your OS of choice) to the mSATA SSD USB device.
-d. When complete unmount the USB SSD device and unplug the USB cables as they are no longer needed.
+- a. Connect both USB ports of the pi-desktop add-on board to two USB ports on the imaging machine
+- b. Press the power button on the add-on board, it will appear to your imaging system as a USB SSD device
+- c. Use Etcher to write the latest Raspian image (or your OS of choice) to the mSATA SSD USB device.
+- d. When complete unmount the USB SSD device and unplug the USB cables as they are no longer needed.
 
 Test your Case
 --------------
-Now you can connect the special USB adapter to the case and boot with your monitor, keyboard, and mouse attached.  If you imaged Raspian the system shoud immediately reboot to resize partitions.  At this point, if you haven't already you can install the top on the case and know it takes a little pushing to get all the plastic clips in place.
+Now you can connect the special USB adapter to the case and boot with your monitor, keyboard, and mouse attached.  If you imaged Raspian the system should immediately reboot to resize partitions.  At this point, if you haven't already you can install the top on the case and know it takes a little pushing to get all the plastic clips in place.
 
 Install the pidesktop package
 -----------------------------
