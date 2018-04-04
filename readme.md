@@ -6,6 +6,8 @@ The fork was created to apply patches requested by the community of users, to br
 
 Install
 -------
+[Fast Installation using Berry Boot](berry.md)
+
 [Fast Installation booting from an mSATA drive](install.md)
 
 [Standard Installation booting from an SD card](documents/Installation-Manual.md)
