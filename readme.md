@@ -6,17 +6,17 @@ The fork was created to apply patches requested by the community of users, to br
 
 Install
 -------
-[Fast Installation using Berry Boot](berry.md)
+[Fast & Easiest Installation using Berryboot](berry.md) - Boot from SD to mSATA SSD supports multi OS images on single system
 
-[Fast Installation booting from an mSATA drive](install.md)
+[Fast Installation booting from an mSATA drive](install.md) - Boot from mSATA USB
 
-[Standard Installation booting from an SD card](documents/Installation-Manual.md)
+[Standard Installation booting from an SD card](documents/Installation-Manual.md) - I have not updated this from original
 
 Utilities
 ----------
 The original script utilities have been refactored and renamed
 
-[pd-status](pidesktop-base/usr/share/pidesktop/script/pd-status) - summarize the files, scripts, links, and services to support pidesktop (new)
+[pd-check](pidesktop-base/usr/share/pidesktop/script/pd-check) - summarize the files, scripts, links, and services to support pidesktop (new)
 
 [pd-fixrtc.py](pidesktop-base/usr/share/pidesktop/python/pd-fixrtc.py) - install fixup to support RTC
 
