@@ -7,7 +7,7 @@ This approach is easiest because it eliminates any SD card changes that might be
 Needed parts:
 - Pi Desktop Case
 - Raspberry Pi 3 Model B+ (recommended) or Model B
-- Formatted Blank SD card (64MB or larger)
+- Formatted Blank SD card (4GB or larger)
 - mSATA SSD
 
 SD Preparation
