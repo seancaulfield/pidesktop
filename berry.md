@@ -12,13 +12,14 @@ Needed parts:
 
 SD Preparation
 -------------------
-Download the Berryboot .zip file to a system that can write to your SD card, format the card with a utility like the [Official SD Formatter](https://www.sdcard.org/downloads/index.html) and extract all the files in the .zip file into your SD card.  If you look at the SD card you should see all the files at the top level or root of the SD card (not all in a sub-directory).  Quickly boot your Pi with the card (connected to a monitor, keyboard and mouse).  You should see the Bootberry Menu and you can do the initial configuration (more on this below) or just turn off your Pi and configure it after the case is assembled.
+Download the latest [Berryboot .zip](https://www.berryterminal.com/doku.php/berryboot) file to a system that can write to your SD card, format the card with a utility like the [Official SD Formatter](https://www.sdcard.org/downloads/index.html) and extract all the files in the .zip file into your SD card.  If you look at the SD card you should see all the files at the top level or root of the SD card (not all in a sub-directory).  Quickly boot your Pi with the card (connected to a monitor, keyboard and mouse).  You should see the Bootberry Menu and you can do the initial configuration (more on this below) or just turn off your Pi and configure it after the case is assembled.
 
 Assemble the case
 -----------------
-Attach the RP3 board (with formatted SD card) to the case using the provided posts.
-- Install the add-on board, and optionally a camera per the provided instruction booklet.
-- Install the mSATA SSD onto the pidesktop add-on board and lock it in place with the provided small screws.
+Attach the RP3 board (with just prepped SD card) to the case using the provided offset posts
+- Install optionally connect a camera per the provided instruction booklet
+- Install the add-on board connecting the 40-pin connector and secure with the provided top posts 
+- Install the mSATA SSD onto the pidesktop add-on board and lock it in place with the provided small screws
 - Install the special USB adapter to connect together the add-on board to your Pi's USB port
 At this point you can install the top on the case and know it takes a little pushing to get all the plastic clips in place.
 
