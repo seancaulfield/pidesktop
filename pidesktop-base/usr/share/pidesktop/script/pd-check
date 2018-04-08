@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# show script and python files
-echo -e "pidesktop\n\n Scripts and python files:\n"
-ls -laR /usr/share/pidesktop
+# show scripts and python files
+echo -e "pidesktop\n\n Script files:\n"
+ls -laR /usr/share/pidesktop/*
 
 # show links to pd- commands
 echo -e "\n Links to commands:\n"
@@ -10,12 +10,12 @@ ls -la /usr/bin/pd-*
 
 # show sevices
 echo -e "\n Systemd services:\n"
-sudo systemctl list-unit-files | grep pidesktop
+systemctl --plain --no-legend list-unit-files 'pidesktop-*'
 
 # show RTC hwclock
-echo -e "\n Hardware clock:\n"
-sudo hwclock -r
+echo -e "\n System and hardware clocks:\n"
+timedatectl status
 
-# show System clock
-echo -e "\n System clock:\n"
-date
+# show installed version
+echo -e "\n Package status:\n"
+dpkg -s pidesktop-base

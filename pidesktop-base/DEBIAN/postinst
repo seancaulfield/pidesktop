@@ -12,6 +12,7 @@ sudo ln -sv /usr/share/pidesktop/python/pd-fixrtc.py /usr/bin/pd-fixrtc
 
 # enable new sevices
 sudo systemctl enable pidesktop-powerkey.service
+sudo systemctl enable pidesktop-reboot.service
 sudo systemctl enable pidesktop-shutdown.service
 sudo systemctl list-unit-files | grep pidesktop
 
