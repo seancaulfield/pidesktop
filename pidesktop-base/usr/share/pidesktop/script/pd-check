@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# show OS and firmware versions
+echo -e "\n OS & Firmware versions:\n"
+dmesg --notime  | grep firmware
+uname -s -r -v -o
+
 # show scripts and python files
 echo -e "pidesktop\n\n Script files:\n"
 ls -laR /usr/share/pidesktop/*
@@ -8,11 +13,11 @@ ls -laR /usr/share/pidesktop/*
 echo -e "\n Links to commands:\n"
 ls -la /usr/bin/pd-*
 
-# show sevices
+# show pidesktop sevices
 echo -e "\n Systemd services:\n"
 systemctl --plain --no-legend list-unit-files 'pidesktop-*'
 
-# show RTC hwclock
+# show system and RTC clock details
 echo -e "\n System and hardware clocks:\n"
 timedatectl status
 

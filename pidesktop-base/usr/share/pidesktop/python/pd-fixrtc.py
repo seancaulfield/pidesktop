@@ -1,4 +1,9 @@
 #!/usr/bin/python
+
+#
+# brute force
+#
+
 import os;
 
 def runCommand(command):
@@ -7,6 +12,69 @@ def runCommand(command):
     info = r.readlines();
     for line in info:
         print line;
+
+def updategpio6():
+    filename = '/boot/config.txt';
+    key = 'gpio';
+    value = '6=op,pn,dl'
+    fr = open(filename,'rb');
+    try:
+        lines = fr.readlines();
+        update = 0;
+        newValue = '';
+        for line in lines :
+            if line and line.count(key) > 0:
+                if not line.strip().startswith('#'):
+                    sps = line.split('=',2);
+                    if len(sps) == 2 and sps[1] == value:
+                        update = 1;
+                    elif update == 0:
+                        newValue += key +'='+value+'\r\n';
+                        update = 2;
+            else:
+                newValue += line;
+        if not update == 1:
+            if update == 0:
+                newValue += '\r\n' + key+'='+ value;
+            fw = open(filename,'wb');
+            try:
+                fw.write(newValue);
+            finally:
+                fw.close();
+    finally:
+        fr.close();
+
+def updategpio13():
+    filename = '/boot/config.txt';
+    key = 'gpio';
+    value = '13=ip'
+    fr = open(filename,'rb');
+    try:
+        lines = fr.readlines();
+        update = 0;
+        newValue = '';
+        for line in lines :
+            if line and line.count(key) > 0:
+                if not line.strip().startswith('#'):
+                    sps = line.split('=',2);
+                    if len(sps) == 2 and sps[1] == value:
+                        update = 1;
+                    elif update == 0:
+                        newValue += key +'='+value+'\r\n';
+                        update = 2;
+            else:
+                newValue += line;
+        if not update == 1:
+            if update == 0:
+                newValue += '\r\n' + key+'='+ value;
+            fw = open(filename,'wb');
+            try:
+                fw.write(newValue);
+            finally:
+                fw.close();
+    finally:
+        fr.close();
+
 
 def updateConfig():
     filename = '/boot/config.txt';
@@ -50,7 +118,7 @@ def removeFakeHwclock():
                 command = 'sudo systemctl disable fake-hwclock.service';
                 runCommand(command);
 
-def updateHwcloclSet() :
+def updateHwclockSet() :
     filename = '/lib/udev/hwclock-set';
     fr = open(filename,'rb');
     key = '-e /run/systemd/system';
@@ -79,5 +147,7 @@ def updateHwcloclSet() :
 
 if __name__ == "__main__":
     updateConfig();
-    updateHwcloclSet();
+    updategpio6();
+#    updategpio13();
+    updateHwclockSet();
     removeFakeHwclock();
