@@ -2,7 +2,17 @@ Installation with Berryboot and an mSATA SSD
 ============================================
 This is the EASIEST approach to setting up a pi-desktop case and while it does require a dedicated SD card it can also be the FASTEST if you have a good network connection and for some it is even faster than manually imaging your mSATA SSD.
 
-This approach is easiest because it eliminates any SD card changes that might be needed and the SD card you install inside the case is intended to stay there.   Berryboot which is a light weight boot manager placed on your Pi's SD card which then allows you to boot one or more OSs from your SSD.  The approach described here requires downloading an OS from the network, while there are other approaches they are not covered here.    
+Key features of pidesktop:
+
+- Reliable reboot with mSATA SSD drives
+- Flash on boot to signal pidesktop support is enabled
+- Improved installation instructions (Raspian and Bootberry)
+- New pd-check command that provides detailed environment support
+- Improved logging information
+- Improved systemd services
+- Rationalized file naming scheme
+
+This approach is easiest because it eliminates any SD card changes that might be needed and the SD card you install inside the case is intended to stay there.   Berryboot which is a light weight boot manager placed on your Pi's SD card which then allows you to boot one or more OSs from your SSD.  The approach described here requires downloading OS images from the network, while there are other approaches they are not covered here.    
 
 Needed parts:
 - Pi Desktop Case
@@ -12,7 +22,7 @@ Needed parts:
 
 SD Preparation
 -------------------
-Download the latest [Berryboot .zip](https://www.berryterminal.com/doku.php/berryboot) file to a system that can write to your SD card, format the card with a utility like the [Official SD Formatter](https://www.sdcard.org/downloads/index.html) and extract all the files in the .zip file into your SD card.  If you look at the SD card you should see all the files at the top level or root of the SD card (not all in a sub-directory).  Quickly boot your Pi with the card (connected to a monitor, keyboard and mouse).  You should see the Bootberry Menu and you can do the initial configuration (more on this below) or just turn off your Pi and configure it after the case is assembled.
+Download the latest [Berryboot .zip](https://www.berryterminal.com/doku.php/berryboot) file to a system that can write to your SD card, format the card with a utility like the [Official SD Formatter](https://www.sdcard.org/downloads/index.html) and extract all the files in the .zip file into your SD card.  If you look at the SD card you should see all the files at the top level or root of the SD card (not all in a sub-directory).  Quickly boot your Pi with the card (and connected to a monitor, keyboard and mouse).  You should see the Bootberry Menu (more on this below). Turn off your Pi and configure it after the case is assembled.
 
 Assemble the case
 -----------------
@@ -29,12 +39,19 @@ Make sure the special USB adapter is firmly in place, your monitor, keyboard, an
 
 As of this writing you can choose the official Raspian distribution, but you can also choose other options like OpenELEC, Ubuntu Mate, or RetroPie.  For these instructions we'll assume you choose Raspian Stretch which when testing these instructions took 4 minutes to download and install.  Press OK to reboot and when the menu come up click Edit Menu (you have 10 seconds).
 
-Before you boot Raspian for the first time, it is recommended to shorten the wait time of Berryboot so reboots work well.  Click Edit Config, select the cmdline.txt tab and edit the boot menu timeout value.  If you are quick with your mouse 1 second works, if you're not sure try 3 seconds.   You can set your new image to boot by default, click on Exit to reboot into Raspian.
+Before you boot Raspian for the first time, it is recommended to shorten the wait time of Berryboot so reboots work well.  Click Edit Config, select the cmdline.txt tab and edit the boot menu timeout value to 3-5 seconds.  You can set your new image to boot by default, click on Exit to reboot into Raspian.
 
 You may never need to touch Berryboot again, it will boot into your new Raspian image every time as is.  If you want to install other OS images you can learn more about [Berryboot](https://berryterminal.com/doku.php/berryboot) and try it.
 
 Install the pidesktop package
 -----------------------------
-Good practice at this point would be to [update Raspian via apt](https://www.raspberrypi.org/documentation/raspbian/updating.md) and then with your browser hit [pidesktop github](http://github.com/hoopsurfer/pidesktop) to download the .deb package. Install the pidesktop-base package using the command `sudo dpkg -i pidesktop-base.deb` and reboot, check all is well with `pd-check` and you should see commands added, new services, and RTC clock updated.  You can then `shutdown now` and use the new pi-desktop power control - the blue led will flash for about 30 seconds and then full power off.
+Good practice would be to [update Raspian via apt-get](https://www.raspberrypi.org/documentation/raspbian/updating.md) and while those instructions work, using a higher-level `apt` with the following commands is growing in popularity:
+- `sudo apt update`
+- `sudo apt full-upgrade`
 
-Best Feature: You can safely and quickly shutdown via the power button by holding it down for 2 seconds!
+Now you can go to the [pidesktop github](http://github.com/hoopsurfer/pidesktop) to download the .deb package from your browser. Install the pidesktop-base package using the command `sudo dpkg -i pidesktop-base.deb` and reboot, check all is well with `pd-check` and you should see your firmware & kernel versions, new commands added, new services, and RTC clock updated, and finally a summary of the installed pidesktop package.
+
+**NOTE: CHECK CAREFULLY THAT FIRMWARE IN `pd-check` IS DATED 2018-04-09 OR NEWER! Until an April firmware update makes into the official upgrade process you will need to run `rpi-update` to install a newer build of firmware with fixes that this solution depends on. Shutdown and restart and recheck that you have newer firmware with the `pd-check` command again.
+
+Now you can then hit the case power button for 2 seconds and your Pi should immediately shutdown.  You can issue `shutdown now` or `reboot` (or the equivalent) and the case led will flash until reboot has started (~10 secs) or longer for shutdown (~30 secs) get to full power off.
+

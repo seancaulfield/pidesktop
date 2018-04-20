@@ -2,6 +2,15 @@ Installation with mSATA SSD
 ===========================
 It is VERY easy to build a new pidesktop case with a new mSATA SSD attached on a Raspberry Pi 3 Model B+ (2018) and only slightly more difficult for the older Model B.  If you have a choice, pick the Model B+, it can boot from SSD out of the box, has a faster CPU and networking. 
 
+Key features of pidesktop:
+- Reliable reboot for mSATA SSD drives
+- Flash on boot to signal pidesktop support is enabled
+- Improved installation instructions (Raspian and Bootberry)
+- New pd-check command that provides detailed environment support
+- Improved logging information
+- Improved systemd services
+- Rationalized file naming scheme
+
 The pidesktop add-on board functions as a USB mSATA SSD device when connected to *any* system not just an RP3 Model B or B+. If the special USB adapter that connects the RP3 to the add-on card (hat) is not inserted and there is no SD card in the RP3, the RP3 will not boot. When the micro-USB data port of the add-on card is connected to a computer and power is provided via the second micro-USB port on the add-on card, the add-on card alone becomes a functional USB mSATA SSD device when the power button on the add-on card is pressed.
 
 Needed parts:
@@ -36,48 +45,51 @@ Now you can connect the special USB adapter to the case and boot with your monit
 
 Install the pidesktop package
 -----------------------------
-Good practice would be to [update Raspian via apt-get](https://www.raspberrypi.org/documentation/raspbian/updating.md) and then go to the [pidesktop github](http://github.com/hoopsurfer/pidesktop) to download the .deb package. Install the pidesktop-base package using the command `sudo dpkg -i pidesktop-base.deb` and reboot, check all is well with `pd-check` and you should see commands added, new services, and RTC clock updated.  You can then `shutdown now` and use the new pi-desktop power control - the blue led will flash for about 30 seconds and then full power off.
+Good practice would be to [update Raspian via apt-get](https://www.raspberrypi.org/documentation/raspbian/updating.md) and while those instructions work, using a higher-level `apt` with the following commands is growing in popularity:
+- `sudo apt update`
+- `sudo apt full-upgrade`
 
-Best Feature: You can safely shutdown via the power button by holding it down for 2 seconds!
+Now you can go to the [pidesktop github](http://github.com/hoopsurfer/pidesktop) to download the .deb package from your browser. Install the pidesktop-base package using the command `sudo dpkg -i pidesktop-base.deb` and reboot, check all is well with `pd-check` and you should see your firmware & kernel versions, new commands added, new services, and RTC clock updated, and finally a summary of the installed pidesktop package.
 
-Test Installs with Different SSDs
----------------------------------
-I was able to try different SSDs, I used Raspian images and the imaging process took about 8 minutes, once installed here are boot/reboot times measured first without an SD card installed, then with a blank SD card installed.  No cameras and the boot time was measured from pressing the power button to the first flash of the case LED - a feature of the [pidesktop 1.1.4 release](https://github.com/hoopsurfer/pidesktop).  The reboot time is from first flash of the case LED to case LED on - effectively when the reboot timer in the power MCU starts and ends.
+**NOTE: CHECK CAREFULLY THAT FIRMWARE IN `pd-check` IS DATED 2018-04-09 OR NEWER! Until an April firmware update makes into the official upgrade process you will need to run `rpi-update` to install a newer build of firmware with fixes that this solution depends on. Shutdown and restart and recheck that you have newer firmware with the `pd-check` command again.
 
-__Raspberry Pi 3 Model B+ with Raspian Stretch 2018-03-13 - with and without a blank SD card__
+Now you can then hit the case power button for 2 seconds and your Pi should immediately shutdown.  You can issue `shutdown now` or `reboot` (or the equivalent) and the case led will flash until reboot has started (~10 secs) or longer for shutdown (~30 secs) get to full power off.
 
- mSAT SSD Device  | *Boot Time to LED Flash* |  *Reboot Time w/o SD*  | *Reboot Time w/ Blank SD* 
-------------------|--------------------------|------------------------|---------------------------
-Samsung 860 EVO 250GB | 33.3 w/o SD, 27.9 w/SD | 30+s (reboot fails) | 27.7s-28.6s (fails sometimes)  
-Kingston 120GB | 32.3s w/o SD, 27.2s w/SD | 30+s (reboot fails) | *26.4s-27.4s*
-Kingspec 64GB | 32.3s w/o SD, 27.2s w/SD | 30+s (reboot fails) | 26.8s-29.9s (fails sometimes)
+Updated Tests with Different SSDs
+---------------------------
+This new pidesktop update along with firmware has improved reboot times by about 20 seconds (which in many cases means going from not working to working reliabily).  Imaging Raspian 2018-3-13 took about 8 minutes on all SSDs.  After booting updates were applied via apt update, full-upgrade and rpi-update).  Below tables are boot/reboot/shutdown times measured with no SD card and with a blank SD card.  No camera was installed.  Boot time was measured from pressing the power button to the first flash of the case LED.  The reboot time is from `reboot` command to case LED on steady.  The shutdown time is pressing power button for 2 seconds to Pi off (full power off is about 30 seconds).
 
-__Raspberry Pi 3 Model B (Boot from USB Set) with Raspian Stretch 2017-11-29 - with and without a blank SD card__
+__Raspberry Pi 3 Model B+__
 
- mSAT SSD Device  | *Boot Time to LED Flash* |  *Reboot Time w/o SD*  | *Reboot Time w/ Blank SD* 
-------------------|--------------------------|------------------------|---------------------------
-Samsung 860 EVO 250GB | 32.7s w/o SD, 28.7 w/SD | 30+s (reboot fails) | 27.8s-28.6s (fails sometimes)  
-Kingston 120GB | 31.2s w/o SD, 26.2s w/SD | 30+s (reboot fails) | *25.9s-26.8s*
-Kingspec 64GB | 31.2s w/o SD, 26.2s w/SD | 30+s (reboot fails) | 26.3s-29.6s (fails sometimes)
+   mSATA SSD w/o SD  | *Boot to LED Flash* | *Reboot to LED On* | *Power Button to Off*
+---------------------|---------------------|--------------------|---------------------
+Samsung 860 EVO 250GB | 32.8s | 15.5s | 3.3s
+Kingston 120GB | 32.5s | 15.5s | 3.3s
+Kingspec 64GB | 33.2s | 16.3s | 3.3s
+
+   mSATA SSD w/ SD  | *Boot to LED Flash* | *Reboot to LED On* | *Power Button to Off*
+--------------------|---------------------|--------------------|----------------------
+**Samsung 860 EVO 250GB** | **27.2s** | **10.2s**  | 3.3s
+**Kingston 120GB** | **27.2s** | **10.2s** | 3.3s
+Kingspec 64GB | 28.2s | 11.7s | 3.3s
 
 A Few Observations:
-- Note "Boot from USB" is enabled out of the box on the Model B+, however using a formatted blank SD card is still recommended.
-- None of the devices was able to reboot consistently without a blank SD card inserted.
-- The Kingston device has the fastest reboot times and so was less likely to fail to reboot.
-- While boot times were fairly consistent, reboot times vary more that would be expected. 
-As noted in the results reboots did fail and when they did it is bacause the boot process takes too long and the reboot timer elapses and shuts off power.  That timer is not always 30 seconds, in fact it seems more like 26s-27s when it does fail.  When reboot does fail it seems to be after previous reboots, not a reboot after a cold start.  I have reported what appears to be an underlying firmware bug.
+- Using a formatted blank SD card still cuts boot time by 5 seconds which is why it is recommended
+- With the latest pidesktop here all devices reboot consistently with or without a blank SD card inserted.
+- The Samsung and Kingston mSATA devices had identical, fastest boot and reboot times - your mileage may vary
+- The Kingspec mSATA device had only slightly slower boot/reboot times
 
 Hacking Your Pi Desktop Case
 ----------------------------
-If you ever need to reimage your mSATA SSD, it is as easy as unplugging the special USB adapter and connecting the micro-USB and and power ports to the imaging machine.  It takes me about 8 minutes to reimage and you *DO NOT* need to disassemble the case.   
+If you ever need to reimage your mSATA SSD, it is as easy as unplugging the special USB adapter and connecting the micro-USB and power ports to the imaging machine.  It takes about 8 minutes to reimage and it is not necessary to disassemble the case.   
 
 If you use a wireless keyboard/mouse with your new pidesktop you can install the small dongle under the special USB adapter and that makes for a very clean installation with easy access to the remaining two USB ports.
 
-If you're like me you want a clean look with no branding.  You can remove the branding in the center of the light ring by removing the plastic circle from the top of the case and then polishing off the branding using an abrasive like bar keepers friend liquid to remove the printing - lay the cloth on your bench and put a 2cm dot of abrasive liquid on a microfiber cloth to rub off the branding.
+If you're like me you want a clean look with no branding.  You can remove the branding in the center of the light ring by removing the plastic circle from the top of the case and then polishing off the branding using an abrasive like bar keepers friend liquid to remove the printing - lay a cloth on your bench and put a 2cm dot of abrasive liquid on a microfiber cloth to rub off the branding.
 
 If you installed a camera you enable with "raspi-config" and then test it with `raspistill -vf -o test.jpg` and you can do some mild overclocking to speed up your new system - consider a micro cooling fan if you want to push your system.  
 
-**FULL DISCLOSURE: Using a formatted blank SD card even though your system can boot from USB is strongly recommended. The pidesktop case power management firmware has a bug in that it expects reboot will always be completed in less than 30 seconds.  If your reboot times approach or exceed 30 seconds (and they can) you will experience failed or unreliable reboots which are effectively caused by the power management controller shutting off power because it cannot detect system restart during the early stages of a reboot.  The workaround is to insert a blank formatted SD card into your Raspberry Pi which will generally speed reboot times by around 5 seconds. If there is no SD card inserted, the SD boot mode takes about five seconds to fail before boot will start on the USB mSATA SSD.  Even if you don't have any reboot issues, you may want to save the 5 seconds and have a second storage device available for use.
+**FULL DISCLOSURE: I have not extensively tested clone and boot from SD configurations since I don't use them - would welcome feedback
 
 References
 ----------

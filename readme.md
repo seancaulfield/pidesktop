@@ -2,6 +2,15 @@ pidesktop  V1.1.6
 =================
 This repository is a fork of the "offical" DIY Pi Desktop Case supporting software sold by http://www.element14.com sourced from Embest Technology Ltd. The case comes with a novel mSATA USB Disk, a power management solution, and real time clock integrated with the Raspberry Pi GPIO Connector.  Together they provide the missing mass storage, power management, and real time clock available in a typical desktop computer.
 
+Key features of pidesktop:
+- Reliable reboot for mSATA SSD drives
+- Flash on boot to signal pidesktop support is enabled
+- Improved installation instructions (Raspian and Bootberry)
+- New pd-check command that provides detailed environment support
+- Improved logging information
+- Improved systemd services
+- Rationalized file naming scheme
+
 This fork DRAMATICALLY improves reboot performance so that many USB mSATA drives will reboot correctly.  It also adds a "flash" of the case top LED at startup so it is clear that the power button service has been enabled.  It has been tested on Raspian and Berryboot and the package should work with modern Debian-based distributions.   The fork was orignally created to apply patches requested by the community of users, to bring together all the related files and polish the product and support files. The approach here is focused on using a RP3 Model B+ (2018) and a USB mSATA SSD, if you don't take advantage of that capability there is not much point in purchasing the case.  It should work fine on an older RP3 Model B.
 
 Install
