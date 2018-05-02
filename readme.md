@@ -5,7 +5,7 @@ This repository is a fork of the "offical" DIY Pi Desktop Case supporting softwa
 Key features of pidesktop:
 - Reliable reboot for mSATA SSD drives
 - Flash on boot to signal pidesktop support is enabled
-- Improved installation instructions (Raspian and Bootberry)
+- Improved installation instructions (Raspian and Berryboot)
 - New pd-check command that provides detailed environment support
 - Improved logging information
 - Improved systemd services
