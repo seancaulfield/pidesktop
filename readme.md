@@ -15,9 +15,9 @@ This fork DRAMATICALLY improves reboot performance so that many USB mSATA drives
 
 Install
 -------
-[Fast & Easiest Installation using Berryboot](berry.md) - Boot from SD to mSATA SSD no-clone multi OS images on single system
-
 [Fast Installation booting from an mSATA drive](install.md) - Boot from mSATA USB with or without a blank SD card - cleanest
+
+[Fast & Easiest Installation using Berryboot](berry.md) - Boot from SD to mSATA SSD no-clone multi OS images on single system
 
 [Standard Installation booting from an SD card](documents/Installation-Manual.md) - Not recommended and not updated from the original
 
