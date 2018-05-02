@@ -54,4 +54,4 @@ There is a simple Makefile to build pidesktop-base.deb file from sources or you 
 
 `dpkg -i pidesktop-base.deb`
 
-If you want to change things you can clone this repository `make uninstall`, `make clean`, and make your changes to the underlying code, then `make install` to build a new .deb package and install it with `make install`.
+If you want to change things you can clone this repository `make uninstall`, `make clean`, and make your changes to the underlying code, then `make` to build a new .deb package and install it with `make install`.
