@@ -16,17 +16,17 @@ The pidesktop add-on board functions as a USB mSATA SSD device when connected to
 Needed parts:
 - Pi Desktop Case
 - Raspberry Pi 3 Model B+ (recommended) or Model B
-- Formatted Blank SD card (recommended)
+- Formatted Blank SD card (optional for Model B+)
 - mSATA SSD
 - two USB->miniUSB cables (just for imaging)
 
 Model B pre-install
 -------------------
-If you have a Model B+ you can skip this step, but if you have a Model B it may not have the ["Boot from USB bit"](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) set by [booting from an SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and making sure the required configuration bit is set in hardware. You should be able to use an existing SD card, just *remember* to clear the /boot/config.txt changes used the set the boot bit if you are going to reuse it. Make certain: `vcgencmd otp_dump | grep 17:` shows `17:3020000a`, then shutdown and replace the SD card with a formatted blank card to optimize boot times (which could be the same card).
+If you have a Model B+ you can skip this step, but if you have a Model B it may not have the ["Boot from USB bit"](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/msd.md) set by [booting from an SD card](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and making sure the required configuration bit is set in hardware. You should be able to use an existing SD card, just *remember* to clear the /boot/config.txt changes used the set the boot bit if you are going to reuse it. Make certain: `vcgencmd otp_dump | grep 17:` shows `17:3020000a`, then shutdown and remove the SD card.  You can format your SD card and use it to optimize boot times, but it does add complexity to your configuration.  After trying both with and without an SD card, I generally do not use an SD card.
 
 Assemble the case
 -----------------
-Attach the RP3 board (with formatted blank SSD recommended) to the case using the provided posts. 
+Attach the RP3 board (with optional blank SD card inserted) to the case using the provided posts. 
 - Install the add-on board, and optionally a camera per the provided instruction booklet.
 - Install the mSATA SSD onto the pidesktop add-on board and lock it in place with the provided small screws.
 - DO NOT yet install the special USB adapter, first we need to image the SSD below.
@@ -51,7 +51,7 @@ Good practice would be to [update Raspian via apt-get](https://www.raspberrypi.o
 
 Now you can go to the [pidesktop github](http://github.com/hoopsurfer/pidesktop) to download the .deb package from your browser. Install the pidesktop-base package using the command `sudo dpkg -i pidesktop-base.deb` and reboot, check all is well with `pd-check` and you should see your firmware & kernel versions, new commands added, new services, and RTC clock updated, and finally a summary of the installed pidesktop package.
 
-**NOTE: CHECK THAT FIRMWARE IN `pd-check` IS DATED 2018-04-09 OR NEWER! A needed firmware update has made it into the official upgrade process so you should have it already applied.  IF you do need to manually update your firmware you can run `rpi-update` to install the newest firmware build. Shutdown and restart and recheck that you have newer firmware with the `pd-check` command again.
+**NOTE: CHECK THAT FIRMWARE IN `pd-check` IS DATED 2018-06-29 OR NEWER! A needed firmware update that we requested has been made that dramatically improves reboot reliability.  You can wait for the patch to make it into a formal release or if you do want to use the pre-release firmware you can run `rpi-update` to install the newest firmware build. Shutdown and restart and recheck that you have newer firmware with the `pd-check` command again.
 
 Now you can then hit the case power button for 2 seconds and your Pi should immediately shutdown.  You can issue `shutdown now` or `reboot` (or the equivalent) and the case led will flash until reboot has started (~10 secs) or longer for shutdown (~30 secs) get to full power off.
 
@@ -74,7 +74,7 @@ Kingspec 64GB | 33.2s | 16.3s | 3.3s
 Kingspec 64GB | 28.2s | 11.7s | 3.3s
 
 A Few Observations:
-- Using a formatted blank SD card still cuts boot time by 5 seconds which is why it is recommended
+- Using a formatted blank SD card still cuts boot time by 5 seconds, but pidesktop does not require it 
 - With the latest pidesktop here all devices reboot consistently with or without a blank SD card inserted.
 - The Samsung and Kingston mSATA devices had identical, fastest boot and reboot times - your mileage may vary
 - The Kingspec mSATA device had only slightly slower boot/reboot times
