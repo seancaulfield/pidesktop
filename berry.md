@@ -51,7 +51,7 @@ Good practice would be to [update Raspian via apt-get](https://www.raspberrypi.o
 
 Now you can go to the [pidesktop github](http://github.com/hoopsurfer/pidesktop) to download the .deb package from your browser. Install the pidesktop-base package using the command `sudo dpkg -i pidesktop-base.deb` and reboot, check all is well with `pd-check` and you should see your firmware & kernel versions, new commands added, new services, and RTC clock updated, and finally a summary of the installed pidesktop package.
 
-**NOTE: CHECK THAT FIRMWARE IN `pd-check` IS DATED 2018-04-09 OR NEWER! A needed firmware update has made it into the official upgrade process so you should have it already applied.  IF you do need to manually update your firmware you can run `rpi-update` to install the newest firmware build. Shutdown and restart and recheck that you have newer firmware with the `pd-check` command again.
+**NOTE: CHECK THAT FIRMWARE IN `pd-check` IS DATED 2018-06-29 OR NEWER! A needed firmware update that we requested has been made that dramatically improves reboot reliability.  You can wait for the patch to make it into a formal release or if you do want to use the pre-release firmware you can run `rpi-update` to install the newest firmware build. Shutdown and restart and recheck that you have newer firmware with the `pd-check` command again.
 
 Now you can then hit the case power button for 2 seconds and your Pi should immediately shutdown.  You can issue `shutdown now` or `reboot` (or the equivalent) and the case led will flash until reboot has started (~10 secs) or longer for shutdown (~30 secs) get to full power off.
 
