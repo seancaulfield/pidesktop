@@ -3,5 +3,5 @@
 #
 # Front end to clone SSD python script that also sets up boot.
 #
-sudo /usr/share/pidesktop/python/pd_clonessd.py
-sudo /usr/share/pidesktop/python/pd_bootssd.py
+sudo /usr/share/pidesktop/python/pd-clonessd.py
+sudo /usr/share/pidesktop/python/pd-bootssd.py
