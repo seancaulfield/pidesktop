@@ -1,4 +1,4 @@
-pidesktop  V1.1.6
+pidesktop  V1.1.7
 =================
 This repository is a fork of the "offical" DIY Pi Desktop Case supporting software sold by http://www.element14.com sourced from Embest Technology Ltd. The case comes with a novel mSATA USB Disk, a power management solution, and real time clock integrated with the Raspberry Pi GPIO Connector.  Together they provide the missing mass storage, power management, and real time clock available in a typical desktop computer.
 
@@ -50,7 +50,14 @@ postrm = post uninstall script
 
 building pidesktop-base
 -----------------------
-There is a simple Makefile to build pidesktop-base.deb file from sources or you can simply download the provided .deb file and install with the following command:
+There is a simple Makefile to build pidesktop-base.deb file from sources if you clone or fork the repos.
+
+`make uninstall`   will uninstall the current pidesktop package
+`make clean`       will clean the build environment
+`make`             will make the .deb file
+`make install`     will install the rebuilt pidesktop package
+
+Or you can simply download the provided .deb file and install with the following command:
 
 `dpkg -i pidesktop-base.deb`
 
