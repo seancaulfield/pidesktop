@@ -6,8 +6,8 @@ In order to achieve reliable power control and RTC the following pins on Pi is u
 
 | GPIO   | Fuction on Pi-desktop | Detials |
 |--------|-----------------------|---------|
-| GPIO6  |[Pin2](https://github.com/pi-desktop/safety-power-control/blob/master/safety-power-control.md)| The state of Pi,was read by the MCU |
-| GPIO13 | [Pin1](https://github.com/pi-desktop/safety-power-control/blob/master/safety-power-control.md)| The pulse signal from MCU to Pi|
+| GPIO6  |[Pin2](../safety-power-control/safety-power-control.md)| The state of Pi,was read by the MCU |
+| GPIO13 | [Pin1](../safety-power-control/safety-power-control.md)| The pulse signal from MCU to Pi|
 | GPIO17 | RTC_INTn              |  interrupt signal of RTC |
 | GPIO2  | RTC_SDA/MCU_SDA       |  SDA  for both RTC and MCU|
 | GPIO3  | RTC_SCL/MCU_SCL       |  SCL  for both RTC and MCU|
