@@ -16,7 +16,7 @@ In order to achieve reliable power control and RTC the following pins on Pi is u
 
 ![GPIO](./_image/gpio.png)
 
-About the The Safety Power Control please refer to [The Safety Power Control for Pi-desktop](https://github.com/hoopsurfer/pidesktop/documents/safety-power-control/blob/master/safety-power-control.md).     
+About the The Safety Power Control please refer to [The Safety Power Control for Pi-desktop](https://github.com/hoopsurfer/pidesktop/documents/safety-power-control.md).     
 
    
 
