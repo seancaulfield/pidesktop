@@ -33,3 +33,5 @@ Discovery Evaluation Tools - https://www.st.com/en/evaluation-tools/stm8s-discov
 Discovery User Manual - https://www.st.com/resource/en/user_manual/cd00250600.pdf 
 
 Discovery Programming Manual - https://www.st.com/resource/en/user_manual/cd00252856.pdf
+
+Developer Tools:  https://www.st.com/en/development-tools/stvd-stm8.html 
