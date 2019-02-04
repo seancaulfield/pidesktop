@@ -1,5 +1,6 @@
 Firmware project notes
 
+https://www.st.com/content/st_com/en/products/microcontrollers/stm8-8-bit-mcus/stm8s-series/stm8s-value-line/stm8s005k6.html 
 https://www.st.com/resource/en/datasheet/stm8s005k6.pdf 
 
 Part: STM8S005K6T6C MCU
