@@ -26,4 +26,10 @@ C: Package pitch C = 0.8 mm
  Peripheral set: Advanced timer control (tim1), general purpose timers (tim2,tim3), basic timer (tim4), SPI, I2C, UART, 
  Window WDG, independent WDG, ADC
  
- 
+ DISCOVERY DOCUMENTS
+
+Discovery Evaluation Tools - https://www.st.com/en/evaluation-tools/stm8s-discovery.html
+
+Discovery User Manual - https://www.st.com/resource/en/user_manual/cd00250600.pdf 
+
+Discovery Programming Manual - https://www.st.com/resource/en/user_manual/cd00252856.pdf
