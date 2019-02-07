@@ -28,6 +28,8 @@ C: Package pitch C = 0.8 mm
  
  DISCOVERY DOCUMENTS
 
+Evaluation - https://www.st.com/en/evaluation-tools/stm8-mcu-eval-boards.html?querycriteria=productId=LN1644
+
 Discovery Evaluation Tools - https://www.st.com/en/evaluation-tools/stm8s-discovery.html
 
 Discovery User Manual - https://www.st.com/resource/en/user_manual/cd00250600.pdf 
