@@ -35,3 +35,5 @@ Discovery User Manual - https://www.st.com/resource/en/user_manual/cd00250600.pd
 Discovery Programming Manual - https://www.st.com/resource/en/user_manual/cd00252856.pdf
 
 Developer Tools:  https://www.st.com/en/development-tools/stvd-stm8.html 
+
+Tutorial - http://www.benryves.com/tutorials/stm8s-discovery/ 
