@@ -1,6 +1,8 @@
 Firmware project
 
-.ihx firmware has been successfully read from flash.  Version Info:  Nov 21 2016 15:32:51 pi-desktop_iap_rev03
+I have started on a firmware rewrite project.  I'll capture progress here once in a while.  I am currently decompiling the firmware from disassembled code.  Not ready to share intermediate results of that work.
+
+.ihx firmware has been successfully read from flash.  Version Info:  Nov 21 2016 15:32:51 pi-desktop_iap_rev03 and stored here for safekeeping.  I can reflash pi-desktop boards with this firmware successfully.
 
 Note the revision information matches the board version.
 
