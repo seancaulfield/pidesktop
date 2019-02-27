@@ -1,4 +1,10 @@
-Firmware project notes
+Firmware project
+
+.ihx firmware has been successfully read from flash.  Version Info:  Nov 21 2016 15:32:51 pi-desktop_iap_rev03
+
+Note the revision information matches the board version.
+
+Firmware has been disassembled - .asm file has been uploaded here - decompile work is ongoing.
 
 https://www.st.com/content/st_com/en/products/microcontrollers/stm8-8-bit-mcus/stm8s-series/stm8s-value-line/stm8s005k6.html 
 https://www.st.com/resource/en/datasheet/stm8s005k6.pdf 
