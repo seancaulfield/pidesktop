@@ -34,9 +34,11 @@ C: Package pitch C = 0.8 mm
  Peripheral set: Advanced timer control (tim1), general purpose timers (tim2,tim3), basic timer (tim4), SPI, I2C, UART, 
  Window WDG, independent WDG, ADC
  
- DISCOVERY DOCUMENTS
+DISCOVERY DOCUMENTS
 
 Evaluation - https://www.st.com/en/evaluation-tools/stm8-mcu-eval-boards.html?querycriteria=productId=LN1644
+
+STM8S VL Discovery - https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm8-mcu-eval-tools/stm8-mcu-eval-boards/stm8svldiscovery.html
 
 Discovery Evaluation Tools - https://www.st.com/en/evaluation-tools/stm8s-discovery.html
 
@@ -46,4 +48,22 @@ Discovery Programming Manual - https://www.st.com/resource/en/user_manual/cd0025
 
 Developer Tools:  https://www.st.com/en/development-tools/stvd-stm8.html 
 
-Tutorial - http://www.benryves.com/tutorials/stm8s-discovery/ 
+TUTORIAL
+
+STM8 Discovery - http://www.benryves.com/tutorials/stm8s-discovery/ 
+
+STM8 Bare Metal - https://lujji.github.io/blog/bare-metal-programming-stm8/ 
+
+OPEN TOOLS
+
+SDCC STM8 Compiler - http://sdcc.sourceforge.net/
+
+STM8 Flash Read/Write - https://github.com/vdudouyt/stm8flash 
+
+firmware disassembly - https://github.com/mikeakohn/naken_asm
+
+firmware file manipulation - https://github.com/gicking/hexfile_merger 
+
+STM8 minimal library - https://github.com/lujji/stm8-bare-min
+
+STM8S ported SDCC library - https://github.com/roshbaby/stm8s-sdcc
