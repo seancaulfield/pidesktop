@@ -36,11 +36,11 @@ C: Package pitch C = 0.8 mm
  
 PINOUT MAPPING to Add-on Board and Pi
  
-Here is a FULL mapping by testing the add-on board components to map to the PI 40 pin GPIO Connector, note where 
-NOT CONNECTED is indicated it means there is a resistor missing on the board that creates an open connection.  For example,  
-NRST (PA0) can be connected to GPIO19 (Pin 35) but it is NOT CONNECTED.  Where NO CONNECTION is indicated it appears there
-is no trace from the pad. PA1 and PA2 are examples of this.  You can see nearly every pin has some potential purpose even
-if unknown at the moment. I did not document the six pins used for power and ground here.
+Here is a FULL mapping by tracing the add-on board components to map to the PI 40 pin GPIO Connector, note where 
+NOT CONNECTED is indicated it means there is a resistor missing on the board that creates an open connection.  For example, 
+NRST (PA0) can be connected to GPIO19 (Pin 35) via a missing R57 but it is NOT CONNECTED.  Where NO CONNECTION is indicated 
+it appears there is no trace from the STM8 pad. PA1 and PA2 are examples of this.  You can see nearly every pin has some potential 
+purpose even if unknown at the moment. I did not document the six pins used for power and ground here.
 
 | Pin | Name	| Function and COnnections
 | --- | --- | ---
@@ -52,30 +52,39 @@ if unknown at the moment. I did not document the six pins used for power and gro
 |12	| PB4	| I2C SCL w/ RTC to Pi GPIO03 (Pin 5) ACTIVE
 |13 | PB3 | GPIO to TP4 - Purpose UNKNOWN
 |14 | PB2 | GPIO to TP5 - Purpose UNKNOWN
-|15 | PB1 | GPIO to MSATA Pin 1 - R32/42 MISSING SO NOT CONNECTED
-|16 | PB0 | GPIO to MSATA Pin 2 - R33 MISSING SO NOT CONNECTED
-|17	| PE5	| SPI_NSS	to Pi GPIO08 (pin 24 SPI-CE0) - R55 MISSING SO NOT CONNECTED
-|18	| PC1	| GPIO_Output to LED (OUT PP LOW FAST) R59 ACTIVE
-|19	| PC2	| GPIO_Output	to TP6 & PI LED (OUT PP LOW FAST) R???
-|20	| PC3	| GPIO_Input	to KEY (IN PU NO IT) - R20 ACTIVE
-|21	| PC4	| GPIO_Output	to POWER (OUT PP LOW FAST) - R5/R7 ACTIVE
-|22	| PC5	| SPI_SCK to Pi GPIO11 (Pin 23 SCLK) - R52 MISSING SO NOT CONNECTED
-|23	| PC6	| SPI_MOSI to Pi GPIO09 (Pin 21 MISO) - R53 MISSING SO NOT CONNECTED
-|24	| PC7	| SPI_MISO to Pi GPIO10 (Pin 19 MOSI) - R54 MISSING SO NOT CONNECTED
-|25	| PD0	| GPIO to Pi GPIO26 (Pin 37) NO CODE
+|15 | PB1 | GPIO to MSATA Pin 1 via R32/42 MISSING SO NOT CONNECTED
+|16 | PB0 | GPIO to MSATA Pin 2 via R33 MISSING SO NOT CONNECTED
+|17	| PE5	| SPI_NSS	to Pi GPIO08 (pin 24 SPI-CE0) via R55 MISSING SO NOT CONNECTED
+|18	| PC1	| GPIO_Output to LED (OUT PP LOW FAST) via R59 ACTIVE
+|19	| PC2	| GPIO_Output	to TP6 & PI LED (OUT PP LOW FAST) via R??? 
+|20	| PC3	| GPIO_Input	to KEY (IN PU NO IT) via R20 ACTIVE
+|21	| PC4	| GPIO_Output	to POWER (OUT PP LOW FAST) via R5/R7 ACTIVE
+|22	| PC5	| SPI_SCK to Pi GPIO11 (Pin 23 SCLK) via R52 MISSING SO NOT CONNECTED
+|23	| PC6	| SPI_MOSI to Pi GPIO09 (Pin 21 MISO) via R53 MISSING SO NOT CONNECTED
+|24	| PC7	| SPI_MISO to Pi GPIO10 (Pin 19 MOSI) via R54 MISSING SO NOT CONNECTED
+|25	| PD0	| GPIO to Pi GPIO26 (Pin 37) NO CODE so UNUSED
 |26	| PD1	| SYS_SWIM	to J6P3 DEBUG (STLink) ACTIVE
 |27	| PD2	| GPIO_Output	CLOSE to GPIO13 (Pin 33) ACTIVE
 |28	| PD3	| GPIO_Input OPEN to GPIO06 (Pin 31) ACTIVE
-|29	| PD4	| GPIO (PD4) to Pi GPIO05 (Pin 29) NO CODE
-|30	| PD5	| UART2_TX (PD5) to GPIO15 RXD (Pin 10) R61 MISSING SO NOT CONNECTED
-|31	| PD6	| UART2_RX	(PD6) to GPIO14 TDX (Pin 08) R22 MISSING SO NOT CONNECTED
-|32	| PD7	| GPIO_Output to SATA Power (OUT PP LOW FAST) - R12 ACTIVE
+|29	| PD4	| GPIO (PD4) to Pi GPIO05 (Pin 29) NO CODE so UNUSED
+|30	| PD5	| UART2_TX (PD5) to GPIO15 RXD (Pin 10) via R61 MISSING SO NOT CONNECTED
+|31	| PD6	| UART2_RX	(PD6) to GPIO14 TDX (Pin 08) via R22 MISSING SO NOT CONNECTED
+|32	| PD7	| GPIO_Output to SATA Power (OUT PP LOW FAST) via R12 ACTIVE
 
-Notes:  It is not clear what PC2 the PI LED is actually connected to, but there is active code - more investigation is needed on a live board.  PB1 and PB2 have somethign to do with the MSATA connector but I haven't done the research to determine what that is.
+Notes:  It is not clear what PC2 driving the PI LED is actually connected to, but there is active code - more investigation is 
+needed on a live board.  PB1 and PB2 could have somethign to do with the MSATA connector but I need to research to determine that.
+
+Ideas:
+1) Need to use I2C to allow firmware updates without STLink hardware, this code was never completed in the original firmware
+2) Once I get the new firmware active a good first project would be to get the UART working, that would allow debugging output
+3) Would be interesting to see if MSATA pins could be used to detect if a MSATA device was present or help better control power
+4) The SPI pins have MISO/MOSI mismapped, is this a bug or is there something more going on?
+5) Could the reset pin be activated for some sort of watchdog behavior
 
 TEST POINTS
 
-TP1 Appears to be connected to the RTC somehow, more investigation needed. TP4-6 are connected to PB3, PB2, PC2 with no known purpose, you can think of those test points as solder pads to patch into the hardware to use the pins.
+TP1 Appears to be connected to the RTC somehow, more investigation needed. TP4-6 are connected to PB3, PB2, PC2 with no known 
+purpose, perhaps the test points could be used as solder pads to patch into the hardware to use the pins.
 
 REAL TIME CLOCK
 
