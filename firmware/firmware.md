@@ -77,6 +77,13 @@ TEST POINTS
 
 TP1 Appears to be connected to the RTC somehow, more investigation needed. TP4-6 are connected to PB3, PB2, PC2 with no known purpose, you can think of those test points as solder pads to patch into the hardware to use the pins.
 
+REAL TIME CLOCK
+
+RTC device sharing I2C slave address: read A3h and write A2h is a PCF8563 device TSSOP8 package that is multi function.  There is no
+code in the firmware, it uses standard drivers.
+
+https://www.nxp.com/docs/en/data-sheet/PCF8563.pdf
+
 DISCOVERY DOCUMENTS
 
 Evaluation - https://www.st.com/en/evaluation-tools/stm8-mcu-eval-boards.html?querycriteria=productId=LN1644
